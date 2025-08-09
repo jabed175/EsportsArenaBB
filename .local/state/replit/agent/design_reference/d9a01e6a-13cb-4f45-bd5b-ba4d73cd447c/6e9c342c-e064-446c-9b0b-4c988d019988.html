@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Gaming Tournament 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tournament-dark': '#0F1419',
+                        'tournament-card': '#1A2332',
+                        'tournament-accent': '#00D4FF',
+                        'tournament-success': '#00FF88',
+                        'tournament-purple': '#8B5CF6'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(0, 212, 255, 0.6)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<!-- @COMPONENT: TournamentLandingPage -->
+<body class="font-inter bg-tournament-dark text-white overflow-x-hidden">
+    <!-- Background Image with Overlay -->
+    <!-- A dynamic esports arena with neon lighting and gaming setup -->
+    <div class="fixed inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&h=1380" 
+             alt="Esports tournament arena background" 
+             class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-br from-tournament-dark/90 via-tournament-dark/70 to-purple-900/20"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="relative z-10 min-h-screen">
+        
+        <!-- @COMPONENT: Header -->
+        <header class="py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <nav class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-r from-tournament-accent to-tournament-success rounded-lg flex items-center justify-center">
+                            <span class="text-lg font-bold text-black">EG</span>
+                        </div>
+                        <span class="text-xl font-bold">Elite Gaming</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#tournaments" class="text-gray-300 hover:text-tournament-accent transition-colors">Tournaments</a>
+                        <a href="#rules" class="text-gray-300 hover:text-tournament-accent transition-colors">Rules</a>
+                        <a href="#prizes" class="text-gray-300 hover:text-tournament-accent transition-colors">Prizes</a>
+                        <a href="#contact" class="text-gray-300 hover:text-tournament-accent transition-colors">Contact</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- @END_COMPONENT: Header -->
+
+        <!-- @COMPONENT: HeroSection -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-tournament-accent via-white to-tournament-success bg-clip-text text-transparent animate-pulse-slow">
+                        ELITE GAMING
+                    </h1>
+                    <h2 class="text-2xl md:text-4xl font-bold mb-4 text-white">
+                        TOURNAMENT 2024
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                        Join the ultimate esports competition featuring your favorite games. 
+                        Compete for glory, prizes, and the chance to become a champion.
+                    </p>
+                </div>
+
+                <!-- Tournament Stats -->
+                <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
+                    <div class="bg-tournament-card/50 backdrop-blur-sm rounded-lg p-4 border border-tournament-accent/20">
+                        <div class="text-2xl font-bold text-tournament-accent" data-bind="tournament.totalPrize">$50,000</div>
+                        <div class="text-sm text-gray-400">Total Prize Pool</div>
+                    </div>
+                    <div class="bg-tournament-card/50 backdrop-blur-sm rounded-lg p-4 border border-tournament-success/20">
+                        <div class="text-2xl font-bold text-tournament-success" data-bind="tournament.participants">1,200+</div>
+                        <div class="text-sm text-gray-400">Participants</div>
+                    </div>
+                    <div class="bg-tournament-card/50 backdrop-blur-sm rounded-lg p-4 border border-tournament-purple/20">
+                        <div class="text-2xl font-bold text-tournament-purple" data-bind="tournament.games">5</div>
+                        <div class="text-sm text-gray-400">Games</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: HeroSection -->
+
+        <!-- @COMPONENT: GameSelection -->
+        <section id="tournaments" class="py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                        Choose Your Battle
+                    </h3>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                        Select your game and register now. Each tournament has its own prize pool and competition format.
+                    </p>
+                </div>
+
+                <!-- Game Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    
+                    <!-- @COMPONENT: GameCard - FC25 -->
+                    <div class="game-card group cursor-pointer" onclick="redirectToForm('fc25')">
+                        <div class="bg-tournament-card rounded-xl p-6 border border-tournament-accent/20 hover:border-tournament-accent/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-tournament-accent/20">
+                            <div class="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-blue-500/20 to-green-500/20">
+                                <!-- A dynamic football/soccer game screenshot with players in action -->
+                                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                                     alt="FC25 Football Game" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                                     data-mock-image="true" 
+                                     data-implementation="Replace with actual FC25 game logo">
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2">FC25</h4>
+                            <p class="text-sm text-gray-400 text-center mb-4">Football Championship</p>
+                            <div class="text-center">
+                                <span class="inline-block bg-tournament-accent/20 text-tournament-accent px-3 py-1 rounded-full text-xs font-medium">
+                                    $10,000 Pool
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: GameCard - FC25 -->
+
+                    <!-- @COMPONENT: GameCard - eFootball -->
+                    <div class="game-card group cursor-pointer" onclick="redirectToForm('efootball')">
+                        <div class="bg-tournament-card rounded-xl p-6 border border-tournament-accent/20 hover:border-tournament-accent/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-tournament-accent/20">
+                            <div class="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-green-500/20 to-blue-500/20">
+                                <!-- A professional football stadium with bright lighting -->
+                                <img src="https://pixabay.com/get/g3fe269bec8637b4e1ad64b5b62786ce36523b76448cfa063e910363df5cc036fb3866cd3832de96a9ff13c53a0642e8467db97da56468e40a011f4d9fb3e7772_1280.jpg" 
+                                     alt="eFootball Game" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                                     data-mock-image="true" 
+                                     data-implementation="Replace with actual eFootball game logo">
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2">eFootball</h4>
+                            <p class="text-sm text-gray-400 text-center mb-4">Pro Evolution Soccer</p>
+                            <div class="text-center">
+                                <span class="inline-block bg-tournament-success/20 text-tournament-success px-3 py-1 rounded-full text-xs font-medium">
+                                    $8,000 Pool
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: GameCard - eFootball -->
+
+                    <!-- @COMPONENT: GameCard - Clash Royale -->
+                    <div class="game-card group cursor-pointer" onclick="redirectToForm('clash-royale')">
+                        <div class="bg-tournament-card rounded-xl p-6 border border-tournament-accent/20 hover:border-tournament-accent/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-tournament-accent/20">
+                            <div class="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                                <!-- A fantasy medieval castle with magical elements -->
+                                <img src="https://pixabay.com/get/gb2ef649984a39bc803e1672aab22bc6b55a75bfc46e4eb068d4e57bd4a15ab28e4639aa0902143548383b835f2f6fbce889f3e7e015a9da3f84e46367025f170_1280.jpg" 
+                                     alt="Clash Royale Game" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                                     data-mock-image="true" 
+                                     data-implementation="Replace with actual Clash Royale game logo">
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2">Clash Royale</h4>
+                            <p class="text-sm text-gray-400 text-center mb-4">Strategy Card Battle</p>
+                            <div class="text-center">
+                                <span class="inline-block bg-tournament-purple/20 text-tournament-purple px-3 py-1 rounded-full text-xs font-medium">
+                                    $12,000 Pool
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: GameCard - Clash Royale -->
+
+                    <!-- @COMPONENT: GameCard - PUBG -->
+                    <div class="game-card group cursor-pointer" onclick="redirectToForm('pubg')">
+                        <div class="bg-tournament-card rounded-xl p-6 border border-tournament-accent/20 hover:border-tournament-accent/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-tournament-accent/20">
+                            <div class="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-orange-500/20 to-red-500/20">
+                                <!-- A military battlefield scene with tactical equipment -->
+                                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                                     alt="PUBG Game" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                                     data-mock-image="true" 
+                                     data-implementation="Replace with actual PUBG game logo">
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2">PUBG</h4>
+                            <p class="text-sm text-gray-400 text-center mb-4">Battle Royale</p>
+                            <div class="text-center">
+                                <span class="inline-block bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-medium">
+                                    $15,000 Pool
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: GameCard - PUBG -->
+
+                    <!-- @COMPONENT: GameCard - Free Fire -->
+                    <div class="game-card group cursor-pointer" onclick="redirectToForm('free-fire')">
+                        <div class="bg-tournament-card rounded-xl p-6 border border-tournament-accent/20 hover:border-tournament-accent/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-tournament-accent/20">
+                            <div class="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-red-500/20 to-yellow-500/20">
+                                <!-- An intense action scene with fire and combat elements -->
+                                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                                     alt="Free Fire Game" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                                     data-mock-image="true" 
+                                     data-implementation="Replace with actual Free Fire game logo">
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2">Free Fire</h4>
+                            <p class="text-sm text-gray-400 text-center mb-4">Survival Shooter</p>
+                            <div class="text-center">
+                                <span class="inline-block bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-medium">
+                                    $5,000 Pool
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: GameCard - Free Fire -->
+
+                </div>
+
+                <!-- Registration CTA -->
+                <div class="text-center mt-16">
+                    <p class="text-lg text-gray-300 mb-6">
+                        Registration closes in <span class="text-tournament-accent font-semibold" data-bind="tournament.timeLeft">7 days</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button class="bg-gradient-to-r from-tournament-accent to-tournament-success hover:from-tournament-success hover:to-tournament-accent px-8 py-3 rounded-lg font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-tournament-accent/30">
+                            View Tournament Rules
+                        </button>
+                        <a href="#contact" class="border border-tournament-accent text-tournament-accent hover:bg-tournament-accent hover:text-black px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+                            Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: GameSelection -->
+
+        <!-- @COMPONENT: Footer -->
+        <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-tournament-card">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="md:col-span-2">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 bg-gradient-to-r from-tournament-accent to-tournament-success rounded-lg flex items-center justify-center">
+                                <span class="text-sm font-bold text-black">EG</span>
+                            </div>
+                            <span class="text-lg font-bold">Elite Gaming Tournament</span>
+                        </div>
+                        <p class="text-gray-400 max-w-md">
+                            The premier esports tournament platform bringing together the best players from around the world.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Quick Links</h5>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Tournament Rules</a></li>
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Prize Distribution</a></li>
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Schedule</a></li>
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Live Stream</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Support</h5>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Help Center</a></li>
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Discord</a></li>
+                            <li><a href="#" class="hover:text-tournament-accent transition-colors">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-tournament-card mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 Elite Gaming Tournament. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- @END_COMPONENT: Footer -->
+
+    </div>
+
+    <script>
+        // TODO: Replace with actual Google Form URLs for each game
+        const gameFormUrls = {
+            'fc25': 'https://forms.google.com/fc25-registration',
+            'efootball': 'https://forms.google.com/efootball-registration', 
+            'clash-royale': 'https://forms.google.com/clash-royale-registration',
+            'pubg': 'https://forms.google.com/pubg-registration',
+            'free-fire': 'https://forms.google.com/free-fire-registration'
+        };
+
+        function redirectToForm(gameKey) {
+            // TODO: Implement actual Google Form redirection
+            const formUrl = gameFormUrls[gameKey];
+            if (formUrl) {
+                // In production, replace with: window.open(formUrl, '_blank');
+                console.log(`Redirecting to ${gameKey} registration form: ${formUrl}`);
+                alert(`Would redirect to ${gameKey} registration form.\nURL: ${formUrl}`);
+            }
+        }
+
+        // Enhanced hover effects for game cards
+        (function() {
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            gameCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05) translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) translateY(0px)';
+                });
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+<!-- @END_COMPONENT: TournamentLandingPage -->
+</html>

@@ -103,9 +103,9 @@ export default function Home() {
             <nav className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-tournament-accent to-tournament-success rounded-lg flex items-center justify-center">
-                  <span className="text-lg font-bold text-black">EG</span>
+                  <span className="text-lg font-bold text-black">KET</span>
                 </div>
-                <span className="text-xl font-bold">Elite Gaming</span>
+                <span className="text-xl font-bold">KET</span>
               </div>
               <div className="hidden md:flex items-center space-x-8">
                 <button 
@@ -142,10 +142,10 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-tournament-accent via-white to-tournament-success bg-clip-text text-transparent animate-pulse-slow">
-                ELITE GAMING
+                KKNIH ESPORTS
               </h1>
               <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white">
-                TOURNAMENT 2024
+                TOURNAMENT 2025
               </h2>
               <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 Join the ultimate esports competition featuring your favorite games. 
@@ -156,11 +156,11 @@ export default function Home() {
             {/* Tournament Stats */}
             <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
               <div className="bg-tournament-card/50 backdrop-blur-sm rounded-lg p-4 border border-tournament-accent/20">
-                <div className="text-2xl font-bold text-tournament-accent">$50,000</div>
-                <div className="text-sm text-gray-400">Total Prize Pool</div>
+                <div className="text-2xl font-bold text-tournament-accent">Trophies</div>
+                <div className="text-sm text-gray-400">Exciting Prizes</div>
               </div>
               <div className="bg-tournament-card/50 backdrop-blur-sm rounded-lg p-4 border border-tournament-success/20">
-                <div className="text-2xl font-bold text-tournament-success">1,200+</div>
+                <div className="text-2xl font-bold text-tournament-success">200+</div>
                 <div className="text-sm text-gray-400">Participants</div>
               </div>
               <div className="bg-tournament-card/50 backdrop-blur-sm rounded-lg p-4 border border-tournament-purple/20">
